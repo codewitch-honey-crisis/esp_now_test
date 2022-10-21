@@ -176,5 +176,12 @@ void comms::update() const {
 }
 #endif
 void comms::mac_address(uint8_t* mac) const {
-    esp_read_mac(mac, ESP_MAC_WIFI_STA);
+    int a[6];
+    Serial.println(WiFi.macAddress());
+    sscanf(WiFi.macAddress().c_str(),"%x:%x:%x:%x:%x:%x%*c",&a[0],&a[1],&a[2],&a[3],&a[4],&a[5]);
+    for(int i = 0;i < 6; ++i) {
+        *mac++=(uint8_t)a[i];
+    }
+
+//    esp_read_mac(mac, ESP_MAC_WIFI_SOFTAP);
 }

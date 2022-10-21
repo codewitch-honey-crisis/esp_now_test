@@ -2,19 +2,8 @@
 // controls network communication
 #pragma once
 #include <stdint.h>
-class comms {
-#ifdef REMOTE    
-    uint8_t m_control_mac[6];
-#endif
+class comms final {
 public:
-    bool initialize(
-#ifdef REMOTE
-        bool rescan = true
-#endif
-        );
-#ifdef REMOTE
-    void control_address(uint8_t* mac) const;
+    bool initialize();
     void update() const;
-#endif
-    void mac_address(uint8_t* mac) const;
 };

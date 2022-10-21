@@ -7,7 +7,11 @@ class comms {
     uint8_t m_control_mac[6];
 #endif
 public:
-    bool initialize();
+    bool initialize(
+#ifdef REMOTE
+        bool rescan = true
+#endif
+        );
 #ifdef REMOTE
     void control_address(uint8_t* mac) const;
     void update() const;

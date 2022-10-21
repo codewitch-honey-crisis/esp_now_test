@@ -11,7 +11,7 @@ comms comm_link;
 void setup() {
     Serial.begin(115200);
     SPIFFS.begin();
-    if(!comm_link.initialize()) {
+    if(!comm_link.initialize(true)) {
         Serial.println("comm link initialization failure.");
         while(1);
     }

@@ -6,7 +6,6 @@
 comms comm_link;
 void setup() {
     Serial.begin(115200);
-    Serial.printf("Zamba HVAC Control - Build %s\n",__DATE__);
     if(!comm_link.initialize()) {
         Serial.println("Comm link initialization failure");
         while(1);

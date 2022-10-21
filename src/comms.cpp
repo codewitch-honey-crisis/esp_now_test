@@ -141,9 +141,8 @@ bool comms::initialize() {
         Serial.println("ESP-NOW receive callback registration failure.");
         return false;
     }
-    char sz[18];
-
 #ifdef REMOTE
+    char sz[18];
     File file = SPIFFS.open("/control.mac","r");
     if(!file || file.readBytes(sz,18)<17) {
         Serial.println("Could not read control.mac");
